@@ -3,6 +3,7 @@ class DirectorsController < ApplicationController
   def index
 
     @list_of_directors = Director.all
+    
     render({ :template => "directors_template/index.html.erb"})
 
   end
@@ -31,6 +32,9 @@ class DirectorsController < ApplicationController
     @director_id = params.fetch("director_id")
 
     @director = Director.where({:id => @director_id }).at(0)
+    
+    @filmography = Movie.where({:director_id => @director_id})
+    
 
     render({ :template => "directors_template/director_details.html.erb"})
 

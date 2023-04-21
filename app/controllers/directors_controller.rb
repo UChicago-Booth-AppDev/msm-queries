@@ -25,4 +25,16 @@ class DirectorsController < ApplicationController
 
   end
 
+
+  def director_details
+
+    @director_id = params.fetch("director_id")
+
+    @director = Director.where({:id => @director_id }).at(0)
+
+    render({ :template => "directors_template/director_details.html.erb"})
+
+  end
+
+
 end

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get("/directors/youngest", { :controller => "directors", :action => "rookie"})
 
+  get("/directors/:director_id", { :controller => "directors", :action => "director_details"})
+
 end
